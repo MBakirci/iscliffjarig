@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Is Cliff Jarig?</title>
+
+</head>
+
+<style>
+    body {
+        text-align: center;       
+        background-color: red;
+    }
+</style>
+
+<body>
+
+    <h1>Is Cliff Jarig?</h1>
+    <h2 id="isIeAlJarig"></h2>
+
+    <script>
+            window.onload = function(e){ 
+                console.log("Hi Cliff. You found me. Please pay me 1.22123123123 bitcoins to deletes this site");
+
+                var today = new Date();
+                var cliffsDateOfBirth = new Date(1983, 0, 4);
+                if (today.getDate() === cliffsDateOfBirth.getDate() && today.getMonth() === cliffsDateOfBirth.getMonth()) {
+                    var yearsOld = today.getFullYear() - cliffsDateOfBirth.getFullYear();
+                    document.getElementById("isIeAlJarig").innerHTML = "JAAAAA! Lekker taartjee 🎂";
+                    document.body.style.backgroundColor = 'green';
+                    document.title = "Is Cliff Jarig? -- JAAAAAAAAA!! :DDDD :DDDD :DDDD";                    
+                } else {
+                    console.log("je bent ook nog niet jarig! Dus ff wachten");
+                    document.getElementById("isIeAlJarig").innerHTML = "Nee! ☹️";
+                    document.title = "Is Cliff Jarig? -- NEEE!! :~(";
+                }
+             }
+    </script>
+
+</body>
+</html>
