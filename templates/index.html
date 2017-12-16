@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -9,34 +10,71 @@
 
 <style>
     body {
-        text-align: center;       
+        text-align: center;
         background-color: red;
     }
+    p {
+        text-align: center;
+        font-size: 60px;
+        color: white;
+      }
 </style>
 
 <body>
 
     <h1>Is Cliff Jarig?</h1>
     <h2 id="isIeAlJarig"></h2>
+    <div><p id="countDown"></p></div>
 
     <script>
-            window.onload = function(e){ 
-                console.log("Hi Cliff. You found me. Please pay me 1.22123123123 bitcoins to deletes this site");
+        window.onload = function (e) {
+            console.log("Hi Cliff. You found me. Please pay me 1.22123123123 bitcoins to delete this site");
 
-                var today = new Date();
-                var cliffsDateOfBirth = new Date(1983, 0, 4);
-                if (today.getDate() === cliffsDateOfBirth.getDate() && today.getMonth() === cliffsDateOfBirth.getMonth()) {
-                    var yearsOld = today.getFullYear() - cliffsDateOfBirth.getFullYear();
-                    document.getElementById("isIeAlJarig").innerHTML = "JAAAAA! Lekker taartjee 🎂";
-                    document.body.style.backgroundColor = 'green';
-                    document.title = "Is Cliff Jarig? -- JAAAAAAAAA!! :DDDD :DDDD :DDDD";                    
-                } else {
-                    console.log("je bent ook nog niet jarig! Dus ff wachten");
-                    document.getElementById("isIeAlJarig").innerHTML = "Nee! ☹️";
-                    document.title = "Is Cliff Jarig? -- NEEE!! :~(";
-                }
-             }
+            var today = new Date();
+            var cliffsDateOfBirth = new Date(1983, 0, 4);
+            if (today.getDate() === cliffsDateOfBirth.getDate() && today.getMonth() === cliffsDateOfBirth.getMonth()) {
+                var yearsOld = today.getFullYear() - cliffsDateOfBirth.getFullYear();
+                document.getElementById("isIeAlJarig").innerHTML = "JAAAAA! Lekker taartjee 🎂";
+                document.getElementById("countDown").innerHTML = "Deze Boi is " + yearsOld + " 🎉";                
+                document.body.style.backgroundColor = 'green';
+                document.title = "Is Cliff Jarig? -- JAAAAAAAAA!! :DDDD :DDDD :DDDD";
+            } else {
+                // Set the date we're counting down to
+                var thisYear = today.getFullYear()
+                var countDownDate = new Date(thisYear, 0, 4).getTime();
+
+                // Update the count down every 1 second
+                var x = setInterval(function () {
+
+                    // Get todays date and time
+                    var now = new Date().getTime();
+
+                    // Find the distance between now an the count down date
+                    var distance = countDownDate - now;
+                    if (distance < 0) {
+                        countDownDate = new Date(thisYear + 1, 0, 4).getTime();
+                        return
+                    }
+
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Output the result in an element with id="countDown"
+                    document.getElementById("countDown").innerHTML = days + "d " + hours + "h " +
+                        minutes + "m " + seconds + "s ";
+
+                }, 500);
+
+                console.log("je bent ook nog niet jarig! Dus ff wachten");
+                document.getElementById("isIeAlJarig").innerHTML = "Nee! ☹️";
+                document.title = "Is Cliff Jarig? -- NEEE!! :~(";
+            }
+        }
     </script>
 
 </body>
+
 </html>
